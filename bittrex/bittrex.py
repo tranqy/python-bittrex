@@ -340,4 +340,9 @@ class Bittrex(object):
         :rtype : dict
 
         """
-        return self.api_query('getorderhistory', {'market':market, 'count': count})
+        options = {}
+        if market:
+            options['market'] = market
+        if count:
+            options['count'] = count
+        return self.api_query('getorderhistory', options)
